@@ -84,14 +84,18 @@
     </Target>
 
     <!-- Implicit Managed References -->
-    <ItemGroup Condition="'$(ImplicitManagedReferences)' == 'true'">
-        <Reference Include="$(ManagedFolder)/*.dll">
+    <ItemGroup>
+        <Reference
+        Include="$(ManagedFolder)/*.dll"
+        Exclude="$(ManagedFolder)/System.*.dll;
+            $(ManagedFolder)/System.dll;
+            $(ManagedFolder)/Firebase.*.dll;
+            $(ManagedFolder)/Unity.Tasks.dll;
+            $(ManagedFolder)/Unity.Compat.dll"
+        Condition="'$(ImplicitManagedReferences)' == 'true'">
             <Private>false</Private>
         </Reference>
-    </ItemGroup>
 
-    <!-- Explicit Managed References -->
-    <ItemGroup>
         <Reference Include="Assembly-CSharp.dll" Condition="'$(ImplicitManagedReferences)' == 'false'">
             <HintPath>$(ManagedFolder)/Assembly-CSharp.dll</HintPath>
             <Private>false</Private>
@@ -111,10 +115,8 @@
             <HintPath>$(ManagedFolder)/0Harmony.dll</HintPath>
             <Private>false</Private>
         </Reference>
-    </ItemGroup>
 
-    <!-- Mod References -->
-    <ItemGroup>
+        <!-- Mod References -->
         <Reference Include="UITools" Condition="Exists('$(ModsFolder)/UITools')">
             <HintPath>$(ModsFolder)/UITools/UITools.dll</HintPath>
             <Private>false</Private>
