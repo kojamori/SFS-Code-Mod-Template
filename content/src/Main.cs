@@ -39,16 +39,11 @@ namespace generatedRootNamespace
                 new FolderPath(ModFolder).ExtendToFile(Assembly.GetExecutingAssembly().GetName().Name + ".dll")
             }
         };
-
-        #if (harmony)
-        private Harmony _patcher;
-        #endif
         
         public override void Early_Load()
         { 
         #if (harmony)
-            _patcher = new Harmony(Instance.ModNameID);
-            _patcher.PatchAll();
+            new Harmony(Instance.ModNameID).PatchAll();
         #endif
         }
 
@@ -85,16 +80,11 @@ namespace generatedRootNamespace
         public override Action LoadKeybindings => null;
 
         public override Dictionary<string, string> Dependencies => new Dictionary<string, string>();
-
-        #if (harmony)
-        private Harmony _patcher;
-        #endif
         
         public override void Early_Load()
         { 
             #if (harmony)
-            _patcher = new Harmony(Instance.ModNameID);
-            _patcher.PatchAll();
+            new Harmony(Instance.ModNameID).PatchAll();
             #endif
         }
 
