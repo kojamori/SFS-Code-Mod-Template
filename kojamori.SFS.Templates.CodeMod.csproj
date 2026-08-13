@@ -8,7 +8,7 @@
     <Description>A .NET Framework 4.8 template for creating DLL mods for the video game Spaceflight Simulator (SFS). </Description>
     <PackageTags>dotnet-new;templates;kojamori;sfs;games;modding;mod;gaming</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/kojamori/ModTemplate</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/kojamori/SFS-Code-Mod-Template</PackageProjectUrl>
 
     <PackageType>Template</PackageType>
     <TargetFramework>net48</TargetFramework>
