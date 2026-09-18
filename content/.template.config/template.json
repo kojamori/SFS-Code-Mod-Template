@@ -84,48 +84,12 @@
       "displayName": "Minimum Game Version"
     },
 
-    "assemblyName": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "",
-      "description": "The assembly name for the generated project. If left empty, the Mod Name ID will be used as the assembly name.",
-      "displayName": "Assembly Name"
-    },
-    "generatedAssemblyName": {
-      "type": "generated",
-      "generator": "coalesce",
-      "parameters": {
-        "source": "assemblyName,generatedModNameId",
-        "sourceVariableName": "assemblyName",
-        "fallbackVariableName": "generatedModNameId"
-      },
-      "replaces": "generatedAssemblyName"
-    },
-
-    "rootNamespace": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "",
-      "description": "The root namespace of the assembly. Defaults to the ModNameID if left empty.",
-      "displayName": "Root Namespace"
-    },
-    "generatedRootNamespace": {
-      "type": "generated",
-      "generator": "coalesce",
-      "parameters": {
-        "source": "rootNamespace,generatedModNameId",
-        "sourceVariableName": "rootNamespace",
-        "fallbackVariableName": "generatedModNameId"
-      },
-      "replaces": "generatedRootNamespace"
-    },
-
     "autoCopyMod": {
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
-      "description": "Whether to automatically copy built mods into the SFS mods folder.",
-      "displayName": "Automatic Mod Copying"
+      "description": "Whether to automatically copy the built mod DLL into the SFS mods folder.",
+      "displayName": "Automatic DLL Copying"
     },
     "generatedAutoCopyMod": {
       "type": "generated",
@@ -135,6 +99,23 @@
         "toLower": true
       },
       "replaces": "generatedAutoCopyMod"
+    },
+
+    "autoCopyPdb": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Whether to automatically copy the built mod DLL's .pdb (Program Database) into the mod folder for debugging.",
+      "displayName": "Automatic PDB Copying"
+    },
+    "generatedAutoCopyPdb": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "autoCopyPdb",
+        "toLower": true
+      },
+      "replaces": "generatedAutoCopyPdb"
     },
 
     "licenseType": {
@@ -203,6 +184,7 @@
       "description": "Whether to implicitly include all managed DLLs as references. If set to false, only Assembly-CSharp.dll, UnityEngine.dll, 0Harmony.dll and UnityEngine.CoreModule.dll will be included as references. This can reduce naming conflicts.",
       "displayName": "Include Implicit Managed References"
     },
+    
     "generatedImplicitManagedReferences": {
       "type": "generated",
       "generator": "casing",
@@ -221,28 +203,64 @@
       "displayName": "Include Automatic DLL Updating Boilerplate (Deprecated)"
     },
 
-    "socials": {
+    "fileScopedNamespace": {
       "type": "parameter",
       "datatype": "bool",
-      "defaultValue": "true",
-      "description": "Whether to include a social media section in the README.",
-      "displayName": "README Social Media Section"
+      "defaultValue": "false",
+      "description": "Whether to make the entrypoint class file use a file-scoped namespace.",
+      "displayName": "File-scoped Namespace"
     },
 
-    "discordLink": {
+    "entrypointClassName": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "Main",
+      "description": "The name of the entrypoint class.",
+      "displayName": "Entrypoint Class Name",
+      "replaces": "entrypointClassName"
+    },
+
+    "assemblyName": {
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "description": "The Discord invite link for the mod's server. This is displayed in the in-game mod list.",
-      "displayName": "Discord Invite Link",
-      "replaces": "discordLink"
+      "description": "The assembly name for the generated project. If left empty, the Mod Name ID will be used as the assembly name.",
+      "displayName": "Assembly Name"
+    },
+    "generatedAssemblyName": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "source": "assemblyName,generatedModNameId",
+        "sourceVariableName": "assemblyName",
+        "fallbackVariableName": "generatedModNameId"
+      },
+      "replaces": "generatedAssemblyName"
+    },
+
+    "rootNamespace": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "description": "The root namespace of the assembly. Defaults to the ModNameID if left empty.",
+      "displayName": "Root Namespace"
+    },
+    "generatedRootNamespace": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "source": "rootNamespace,generatedModNameId",
+        "sourceVariableName": "rootNamespace",
+        "fallbackVariableName": "generatedModNameId"
+      },
+      "replaces": "generatedRootNamespace"
     },
 
     "readMeDescription": {
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "description": "The description in the mod's README. Defaults to the mod description if left empty.",
+      "description": "The description in the mod's README. Defaults to the mod description.",
       "displayName": "README Description"
     },
     "generatedReadMeDescription": {
@@ -256,11 +274,35 @@
       "replaces": "generatedReadMeDescription"
     },
 
+    "socials": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true",
+      "description": "Whether to include a social media section in the README.",
+      "displayName": "README Social Media Section"
+    },
+
+    "discordLink": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "description": "The Discord invite link for the mod's server. This is displayed in the socials section of the README.",
+      "displayName": "Discord Invite Link",
+      "replaces": "discordLink"
+    },
+
+    "creditSmg": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": false,
+      "description": "Whether to include a section and link to the SFS Modding Guide (SMG) in the README."
+    },
+
     "copyrightHolder": {
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "description": "The copyright holder for the mod.",
+      "description": "The copyright holder for the mod. Defaults to the author.",
       "displayName": "Copyright Holder"
     },
     "generatedCopyrightHolder": {
