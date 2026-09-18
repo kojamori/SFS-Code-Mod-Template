@@ -11,7 +11,7 @@ Some features include:
 - Git repo initialisation + .gitignore
 - Open source license selection
 
-See [here](FEATURES.md) for more information on the features of this template.
+See [here](FEATURES.md) for a full list of features and options of this template.
 
 # Requirements
 

@@ -1,108 +1,27 @@
-# Features
+# Template Options & Features
 
-## Automatic SFS Path Resolution
-
-The path to your game folder is resolved automatically on Windows by checking the path to Steam. On MacOS and Linux, the most common installation paths for Steam are checked.
-
-If you have a custom install location on MacOS or Linux, you must specify it by changing `FallbackSteamPath` in the `.csproj` to where the main Steam folder is. Ensure you do not include any trailing slashes.
-
-## Implicit Managed References
-
-This template can implicitly reference all of the DLLs in the Managed folder, which means you don't have to manually add them as references in your project.
-
-When this is disabled, the project will initially only reference the following essential assemblies:
-
-- `Managed/Assembly-CSharp.dll`
-- `Managed/UnityEngine.dll`
-- `Managed/UnityEngine.CoreModule.dll`
-- `Managed/0Harmony.dll`.
-
-When creating a new project, you can enable/disable this by changing **"Implicit Managed References"** (`--implicitManagedReferences`, `-im` in the CLI) to `true` or `false`.
-
-To toggle this behaviour in an existing project made with this template, you can change the `ImplicitManagedReferences` value in the project's `.csproj`.
-
-This **is enabled by default.**
-
-## Automatic Mod Copying to SFS Mods Folder
-
-This template can copy the build DLL into the SFS mods folder after building the mod successfully.
-This is useful for testing your mod in SFS without having to manually copy the DLL into the mods folder every time you build it.
-
-**USE THIS AT YOUR OWN RISK, IT WILL OVERWRITE ANY EXISTING DLL IN YOUR MOD'S FOLDER.**
-
-When creating a new project, you can enable/disable this by changing the **"Automatic Mod Copying"** (`--autoCopyMod`, `-p:a` in the CLI) to `true` or `false`.
-
-To toggle this behaviour in an existing project made with this template, you can change `AutoCopyMod` value in the project's `.csproj`.
-
-This is **is disabled by default.**
-
-## Harmony Patching Boilerplate
-
-The template also includes boilerplate code for using Harmony for patching.
-
-When creating the project with the template, you can include/exclude this with by changing **"Include Harmony Boilerplate"** (`--harmony`, `ha` in the CLI) to `true` or `false`.
-
-This **is enabled by default.**
-
-```csharp
-// This is what your code will look like if you enable the "Include Harmony Patching Boilerplate" option when creating the project with the template.
-
-// ...
-using HarmonyLib;
-
-public class Main : Mod
-{
-  // ...
-
-  private Harmony _patcher;
-
-  public override void Early_Load()
-  {
-      _patcher = new Harmony(Instance.ModNameID);
-      _patcher.PatchAll();
-  }
-
-  // ...
-}
-```
-
-## Mod Updating Boilerplate via UITools (Deprecated)
-
-**DISCLAIMER: The server facillitating the automatic updates (by storing hashes of the latest version of updatable files) is currently offline. Please do not expect automatic updates for the time being.**
-
-The template can optionally include boilerplate for mod updating via UITools (details at https://github.com/cucumber-sp/UITools.) when creating the project with this template.
-
-When creating the project with the template, you can include/exclude this with by changing **"Include Automatic DLL Updating Boilerplate"** (`--updateBoilerplate`, `-up` in the CLI) to `true` or `false`.
-
-This is **disabled by default.**
-
-```csharp
-// This is what your code will look like if you enable the "Include Automatic DLL Updating Boilerplate" option when creating the project with the template.
-
-// ...
-using SFS.IO;
-using UITools;
-using System.Reflection;
-
-public class Main : Mod, IUpdatable
-{
-  // ...
-
-  public override Dictionary<string, string> Dependencies => new Dictionary<string, string>()
-  {
-      { "UITools", "1.1.6" }
-  };
-
-  // Automatic updating using Neptune-Sky's UITools' IUpdatable interface.
-  // Details at https://github.com/cucumber-sp/UITools.
-  public Dictionary<string, FilePath> UpdatableFiles => new()
-  {
-      {
-          "Link/To/Latest/DLL/Release/Goes/Here",
-          new FolderPath(ModFolder).ExtendToFile(Assembly.GetExecutingAssembly().GetName().Name + ".dll")
-      }
-  };
-
-  // ...
-}
-```
+| Option                               | CLI Flag(s)                          | Default                          | Description                                                                                                                                                                              |
+|--------------------------------------|--------------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Project Name**                     | `-n`, `--name`                       | `""`                             | Name of the project and mod.                                                                                                                                                             |
+| **Mod Name ID**                      | `-m`, `--modNameId`                  | Falls back to `--name`           | Unique identifier for the mod (`Mod.ModNameID`). Should not contain spaces or special characters.                                                                                        |
+| **Mod Display Name**                 | `-mo`, `--modDisplayName`            | Falls back to `--modNameId`      | Display name shown to players in the in-game mod list.                                                                                                                                   |
+| **Author**                           | `-au`, `--param:author`              | `""`                             | Author of the mod. Used in metadata and displayed in-game.                                                                                                                               |
+| **Mod Version**                      | `-p:m`, `--modVersion`               | `1.0.0`                          | Version string for the mod. Used in metadata and displayed in-game.                                                                                                                      |
+| **Mod Description**                  | `-p:mo`, `--modDescription`          | `""`                             | Brief description displayed in the in-game mod list.                                                                                                                                     |
+| **Minimum Game Version**             | `-mi`, `--minimumGameVersion`        | `1.6.00.16`                      | Minimum required game version (informational only, doesn't enforce compatibility).                                                                                                       |
+| **License Type**                     | `-li`, `--licenseType`               | `MIT`                            | Open-source license. Options: `MIT`, `LGPL (v3)`, `GPL (v3)`, `AGPL (v3)`, `apache2.0`, `mozilla2.0`, `unlicense`, `none`.                                                               |
+| **Harmony Boilerplate**              | `-ha`, `--harmony`                   | `true`                           | Include Harmony patching boilerplate with `PatchAll()` in `Early_Load()`.                                                                                                                |
+| **Auto-Copy Mod DLL**                | `-p:a`, `--autoCopyMod`              | `false`                          | Automatically copy built DLL to SFS mods folder after build. **Overwrites existing files.**                                                                                              |
+| **Auto-Copy PDB**                    | `-p:p`, `--autoCopyPdb`              | `false`                          | Automatically copy PDB file alongside DLL for debugging.                                                                                                                                 |
+| **Implicit Managed References**      | `-im`, `--implicitManagedReferences` | `true`                           | Auto-reference all DLLs in Managed folder. When disabled, only references essential assemblies (`Assembly-CSharp.dll`, `UnityEngine.dll`, `UnityEngine.CoreModule.dll`, `0Harmony.dll`). |
+| **Assembly Name**                    | `-as`, `--assemblyName`              | Falls back to `--modNameId`      | Assembly name for the generated project.                                                                                                                                                 |
+| **Root Namespace**                   | `-r`, `--rootNamespace`              | Falls back to `--modNameId`      | Root namespace of the assembly.                                                                                                                                                          |
+| **Entrypoint Class Name**            | `-e`, `--entrypointClassName`        | `Main`                           | Name of the main mod class.                                                                                                                                                              |
+| **File-Scoped Namespace**            | `-f`, `--fileScopedNamespace`        | `false`                          | Use C# 10+ file-scoped namespace syntax (`namespace X;`) instead of block syntax.                                                                                                        |
+| **Copyright Holder**                 | `-c`, `--copyrightHolder`            | Falls back to `--param:author`   | Copyright holder for the mod.                                                                                                                                                            |
+| **README Description**               | `-re`, `--readMeDescription`         | Falls back to `--modDescription` | Description used in the generated README.                                                                                                                                                |
+| **Include Socials**                  | `-s`, `--socials`                    | `true`                           | Include social media section in README.                                                                                                                                                  |
+| **Discord Link**                     | `-di`, `--discordLink`               | `""`                             | Discord invite link displayed in README socials section.                                                                                                                                 |
+| **Credit SMG**                       | `--creditSmg`                        | `false`                          | Include link to [SFS Modding Guide](https://kojamori.github.io/SFS-Modding-Guide/) in README.                                                                                            |
+| **Initialize Git**                   | `-g`, `--git`                        | `true`                           | Initialize a local Git repository in the generated project folder.                                                                                                                       |
+| **Update Boilerplate** (deprecated)️ | `-up`, `--updateBoilerplate`         | `false`                          | Include UITools auto-update boilerplate by implementing IUpdatable.                                                                                                                      |

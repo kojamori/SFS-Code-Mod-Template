@@ -37,6 +37,13 @@ TBD
 
 <!--#endif -->
 
+<!--#if (creditSmg && socials) -->
+
+### SFS Modding Guide
+https://github.com/kojamori/SFS-Modding-Guide
+
+<!--#endif -->
+
 # License
 
 See the [LICENSE](LICENSE) file for details.
