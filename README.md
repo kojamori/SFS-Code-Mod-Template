@@ -1,6 +1,6 @@
 # SFS Code Mod Template
 
-A .NET Framework 4.8 template for creating DLL mods for the video game Spaceflight Simulator (SFS).
+A .NET Framework 4.8 C# project template for creating code (DLL) mods for the video game Spaceflight Simulator (SFS).
 
 Some features include:
 
