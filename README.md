@@ -6,12 +6,12 @@ Some features include:
 
 - Mod information customisation, e.g. ID, display name, author, etc.
 - Automatic resolution of SFS installation path + references to game DLLs
-- Automatic mod copying to SFS mods folder
+- Automatic mod dll/pdb copying to SFS mods folder
 - Harmony boilerplate
 - Git repo initialisation + .gitignore
 - Open source license selection
 
-See [here](FEATURES.md) for a full list of features and options of this template.
+See [here](FEATURES.md) for a full list of features and options of this template, including CLI arguments.
 
 # Requirements
 
@@ -71,10 +71,6 @@ Example usage:
 ```cmd
 dotnet new sfsmod -n BestSFSMod -au kojamori --modDisplayName "Best SFS Mod"
 ```
-
-### CLI Options
-
-See [here](OPTIONS.md) for all CLI options.
 
 # Social Media
 
