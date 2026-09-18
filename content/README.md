@@ -3,6 +3,7 @@
 generatedReadMeDescription
 
 ## Requirements and Dependencies
+- SFS vminimumGameVersion
 
 ## Installation
 
