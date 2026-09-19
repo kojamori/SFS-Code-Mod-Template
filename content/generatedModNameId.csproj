@@ -150,7 +150,6 @@
         <Copy SourceFiles="$(OutputPath)$(AssemblyName).pdb"
               DestinationFolder="$(ModsFolder)/$(AssemblyName)/"
               SkipUnchangedFiles="true"
-              Condition="'$(AutoCopyPdb)' == 'true' And Exists('$(OutputPath)/$(AssemblyName).pdb')"
-        />
+              Condition="'$(AutoCopyPdb)' == 'true' And Exists('$(OutputPath)/$(AssemblyName).pdb')"/>
     </Target>
 </Project>

@@ -10,6 +10,7 @@ Some features include:
 - Harmony boilerplate
 - Git repo initialisation + .gitignore
 - Open source license selection
+- and more
 
 See [here](FEATURES.md) for a full list of features and options of this template, including CLI arguments.
 
@@ -69,6 +70,8 @@ dotnet new sfsmod [options] [template options]
 Example usage:
 
 ```cmd
+mkdir BestSFSMod
+cd BestSFSMod
 dotnet new sfsmod -n BestSFSMod -au kojamori --modDisplayName "Best SFS Mod"
 ```
 

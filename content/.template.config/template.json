@@ -195,14 +195,6 @@
       "replaces": "generatedImplicitManagedReferences"
     },
 
-    "updateBoilerplate": {
-      "type": "parameter",
-      "datatype": "bool",
-      "defaultValue": "false",
-      "description": "Whether to include the boilerplate code for automatic updating using Neptune-Sky's UITools' IUpdatable interface. Details at https://github.com/cucumber-sp/UITools.",
-      "displayName": "Include Automatic DLL Updating Boilerplate (Deprecated)"
-    },
-
     "fileScopedNamespace": {
       "type": "parameter",
       "datatype": "bool",
@@ -217,7 +209,8 @@
       "defaultValue": "Main",
       "description": "The name of the entrypoint class.",
       "displayName": "Entrypoint Class Name",
-      "replaces": "entrypointClassName"
+      "replaces": "entrypointClassName",
+      "fileRename": "entrypointClassName"
     },
 
     "assemblyName": {
@@ -302,9 +295,10 @@
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "description": "The copyright holder for the mod. Defaults to the author.",
+      "description": "The copyright holder for the mod to be used in the license. Defaults to the author.",
       "displayName": "Copyright Holder"
     },
+    
     "generatedCopyrightHolder": {
       "type": "generated",
       "generator": "coalesce",
@@ -331,6 +325,14 @@
       "defaultValue": "true",
       "description": "Whether to initialize a local Git repository in the generated project folder.",
       "displayName": "Initialize Git Repository"
+    },
+
+    "updateBoilerplate": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Whether to include the boilerplate code for automatic updating using Neptune-Sky's UITools' IUpdatable interface. Details at https://github.com/cucumber-sp/UITools.",
+      "displayName": "Include Automatic DLL Updating Boilerplate (Deprecated)"
     }
   },
   "sources": [
