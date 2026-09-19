@@ -40,7 +40,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="" />
+    <!-- The reason we have two separate README files is because Nuget
+     does not display embedded media like images from the project itself on the package page, 
+     hence in README_nuget.md we change image links to point to the raw github images
+     as github is a trusted provider. -->
+    <None Include="README_nuget.md" Pack="true" PackagePath="README.md" />
     <None Update="assets/icon.png" Pack="true" PackagePath="" />
     <None Include="LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
