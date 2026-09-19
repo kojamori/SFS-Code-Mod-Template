@@ -3,7 +3,7 @@
 generatedReadMeDescription
 
 ## Requirements and Dependencies
-- SFS vminimumGameVersion
+- SFS vminimumGameVersion on PC 
 
 ## Installation
 
@@ -22,29 +22,20 @@ TBD
 TBD
 
 <!--#if (socials) -->
-
 ## Social Media
 
 ### Forum Post
 
 TBD
-
 <!--#endif -->
 <!--#if (discordLink != "" && socials) -->
-
 ### Discord
-
 [Join the discord server here!](discordLink)
-
 <!--#endif -->
-
 <!--#if (creditSmg && socials) -->
-
 ### SFS Modding Guide
 https://github.com/kojamori/SFS-Modding-Guide
-
 <!--#endif -->
-
 # License
 
 See the [LICENSE](LICENSE) file for details.
