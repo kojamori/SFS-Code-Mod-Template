@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "kojamori",
-  "classifications": ["Games", "Mod", "SFS"],
+  "classifications": ["Linux", "macOS", "Windows", "Games", "Mod", "SFS"],
   "identity": "kojamori.SFS.Templates.CodeMod",
   "name": "SFS Code Mod Template",
   "shortName": "sfsmod",
@@ -84,48 +84,12 @@
       "displayName": "Minimum Game Version"
     },
 
-    "assemblyName": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "",
-      "description": "The assembly name for the generated project. If left empty, the Mod Name ID will be used as the assembly name.",
-      "displayName": "Assembly Name"
-    },
-    "generatedAssemblyName": {
-      "type": "generated",
-      "generator": "coalesce",
-      "parameters": {
-        "source": "assemblyName,generatedModNameId",
-        "sourceVariableName": "assemblyName",
-        "fallbackVariableName": "generatedModNameId"
-      },
-      "replaces": "generatedAssemblyName"
-    },
-
-    "rootNamespace": {
-      "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "",
-      "description": "The root namespace of the assembly. Defaults to the ModNameID if left empty.",
-      "displayName": "Root Namespace"
-    },
-    "generatedRootNamespace": {
-      "type": "generated",
-      "generator": "coalesce",
-      "parameters": {
-        "source": "rootNamespace,generatedModNameId",
-        "sourceVariableName": "rootNamespace",
-        "fallbackVariableName": "generatedModNameId"
-      },
-      "replaces": "generatedRootNamespace"
-    },
-
     "autoCopyMod": {
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
-      "description": "Whether to automatically copy built mods into the SFS mods folder.",
-      "displayName": "Automatic Mod Copying"
+      "description": "Whether to automatically copy the built mod DLL into the SFS mods folder.",
+      "displayName": "Automatic DLL Copying"
     },
     "generatedAutoCopyMod": {
       "type": "generated",
@@ -135,6 +99,23 @@
         "toLower": true
       },
       "replaces": "generatedAutoCopyMod"
+    },
+
+    "autoCopyPdb": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Whether to automatically copy the built mod DLL's .pdb (Program Database) into the mod folder for debugging.",
+      "displayName": "Automatic PDB Copying"
+    },
+    "generatedAutoCopyPdb": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source": "autoCopyPdb",
+        "toLower": true
+      },
+      "replaces": "generatedAutoCopyPdb"
     },
 
     "licenseType": {
@@ -203,6 +184,7 @@
       "description": "Whether to implicitly include all managed DLLs as references. If set to false, only Assembly-CSharp.dll, UnityEngine.dll, 0Harmony.dll and UnityEngine.CoreModule.dll will be included as references. This can reduce naming conflicts.",
       "displayName": "Include Implicit Managed References"
     },
+    
     "generatedImplicitManagedReferences": {
       "type": "generated",
       "generator": "casing",
@@ -213,12 +195,76 @@
       "replaces": "generatedImplicitManagedReferences"
     },
 
-    "updateBoilerplate": {
+    "fileScopedNamespace": {
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
-      "description": "Whether to include the boilerplate code for automatic updating using Neptune-Sky's UITools' IUpdatable interface. Details at https://github.com/cucumber-sp/UITools.",
-      "displayName": "Include Automatic DLL Updating Boilerplate (Deprecated)"
+      "description": "Whether to make the entrypoint class file use a file-scoped namespace.",
+      "displayName": "File-scoped Namespace"
+    },
+
+    "entrypointClassName": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "Main",
+      "description": "The name of the entrypoint class.",
+      "displayName": "Entrypoint Class Name",
+      "replaces": "entrypointClassName",
+      "fileRename": "entrypointClassName"
+    },
+
+    "assemblyName": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "description": "The assembly name for the generated project. If left empty, the Mod Name ID will be used as the assembly name.",
+      "displayName": "Assembly Name"
+    },
+    "generatedAssemblyName": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "source": "assemblyName,generatedModNameId",
+        "sourceVariableName": "assemblyName",
+        "fallbackVariableName": "generatedModNameId"
+      },
+      "replaces": "generatedAssemblyName"
+    },
+
+    "rootNamespace": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "description": "The root namespace of the assembly. Defaults to the ModNameID if left empty.",
+      "displayName": "Root Namespace"
+    },
+    "generatedRootNamespace": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "source": "rootNamespace,generatedModNameId",
+        "sourceVariableName": "rootNamespace",
+        "fallbackVariableName": "generatedModNameId"
+      },
+      "replaces": "generatedRootNamespace"
+    },
+
+    "readMeDescription": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "description": "The description in the mod's README. Defaults to the mod description.",
+      "displayName": "README Description"
+    },
+    "generatedReadMeDescription": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "source": "readMeDescription,modDescription",
+        "sourceVariableName": "readMeDescription",
+        "fallbackVariableName": "modDescription"
+      },
+      "replaces": "generatedReadMeDescription"
     },
 
     "socials": {
@@ -233,36 +279,26 @@
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "description": "The Discord invite link for the mod's server. This is displayed in the in-game mod list.",
+      "description": "The Discord invite link for the mod's server. This is displayed in the socials section of the README.",
       "displayName": "Discord Invite Link",
       "replaces": "discordLink"
     },
 
-    "readMeDescription": {
+    "creditSmg": {
       "type": "parameter",
-      "datatype": "string",
-      "defaultValue": "",
-      "description": "The description in the mod's README. Defaults to the mod description if left empty.",
-      "displayName": "README Description"
-    },
-    "generatedReadMeDescription": {
-      "type": "generated",
-      "generator": "coalesce",
-      "parameters": {
-        "source": "readMeDescription,modDescription",
-        "sourceVariableName": "readMeDescription",
-        "fallbackVariableName": "modDescription"
-      },
-      "replaces": "generatedReadMeDescription"
+      "datatype": "bool",
+      "defaultValue": false,
+      "description": "Whether to include a section and link to the SFS Modding Guide (SMG) in the README."
     },
 
     "copyrightHolder": {
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "description": "The copyright holder for the mod.",
+      "description": "The copyright holder for the mod to be used in the license. Defaults to the author.",
       "displayName": "Copyright Holder"
     },
+    
     "generatedCopyrightHolder": {
       "type": "generated",
       "generator": "coalesce",
@@ -289,6 +325,14 @@
       "defaultValue": "true",
       "description": "Whether to initialize a local Git repository in the generated project folder.",
       "displayName": "Initialize Git Repository"
+    },
+
+    "updateBoilerplate": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Whether to include the boilerplate code for automatic updating using Neptune-Sky's UITools' IUpdatable interface. Details at https://github.com/cucumber-sp/UITools.",
+      "displayName": "Include Automatic DLL Updating Boilerplate (Deprecated)"
     }
   },
   "sources": [

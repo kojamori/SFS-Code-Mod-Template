@@ -1,4 +1,4 @@
-﻿<!-- SFS Code Mod Template v1.3.0 -->
+﻿<!-- Made using SFS Code Mod Template v1.4.0 -->
 
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
@@ -13,6 +13,7 @@
         <!-- These are the only things you should be changing -->
         <ImplicitManagedReferences>generatedImplicitManagedReferences</ImplicitManagedReferences>
         <AutoCopyMod>generatedAutoCopyMod</AutoCopyMod>
+        <AutoCopyPdb>generatedAutoCopyPdb</AutoCopyPdb>
         <FallbackSteamPath>UnknownSteamPath</FallbackSteamPath>
         <!-- =============== -->
     </PropertyGroup>
@@ -140,6 +141,15 @@
         <MakeDir Directories="$(ModsFolder)/$(AssemblyName)"
          Condition="!Exists('$(ModsFolder)/$(AssemblyName)')" />
 
-        <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(ModsFolder)/$(AssemblyName)/" SkipUnchangedFiles="true"/>
+        <!-- Copy .dll -->
+        <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll"
+              DestinationFolder="$(ModsFolder)/$(AssemblyName)/"
+              SkipUnchangedFiles="true"/>
+
+        <!-- Copy .pdb -->
+        <Copy SourceFiles="$(OutputPath)$(AssemblyName).pdb"
+              DestinationFolder="$(ModsFolder)/$(AssemblyName)/"
+              SkipUnchangedFiles="true"
+              Condition="'$(AutoCopyPdb)' == 'true' And Exists('$(OutputPath)/$(AssemblyName).pdb')"/>
     </Target>
 </Project>

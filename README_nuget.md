@@ -52,26 +52,26 @@ dotnet new update
 ### Visual Studio
 
 When using Visual Studio, you can use the 'Create a new project' dialog and search for 'SFS Code Mod Template' to create a new project using the template.
-![Screenshot of SFS Code Mod Template in the Visual Studio IDE project template list outlined by a red rectangular outline](./assets/vs_usage1.png)
-![Screenshot of SFS Code Mod Template in the Visual Studio IDE new project initialisation menu where template parameters are shown](./assets/vs_usage2.png)
+![Screenshot of SFS Code Mod Template in the Visual Studio IDE project template list outlined by a red rectangular outline](https://raw.githubusercontent.com/kojamori/SFS-Code-Mod-Template/refs/heads/main/assets/vs_usage1.png)
+![Screenshot of SFS Code Mod Template in the Visual Studio IDE new project initialisation menu where template parameters are shown](https://raw.githubusercontent.com/kojamori/SFS-Code-Mod-Template/refs/heads/main/assets/vs_usage2.png)
 
 ### JetBrains Rider
 
 When using JetBrains Rider, you can use the 'File -> New Solution' dialog and select 'SFS Code Mod Template' on the bottom-left side below 'Custom Templates' to create a new project using the template.
 
-![Screenshot of the File -> New Solution dialog in the Jetbrains Rider IDE outlined by a red rectangular outline](./assets/rider_usage1.png)
-![Screenshot of the JetBrains Rider IDE with Custom Templates - SFS Code Mod Template in the bottom right corner outlined by a red rectangular outline](./assets/rider_usage2.png)
+![Screenshot of the File -> New Solution dialog in the Jetbrains Rider IDE outlined by a red rectangular outline](https://raw.githubusercontent.com/kojamori/SFS-Code-Mod-Template/refs/heads/main/assets/rider_usage1.png)
+![Screenshot of the JetBrains Rider IDE with Custom Templates - SFS Code Mod Template in the bottom right corner outlined by a red rectangular outline](https://raw.githubusercontent.com/kojamori/SFS-Code-Mod-Template/refs/heads/main/assets/rider_usage2.png)
 
 **You should not enable the "Create a Git Repository" option that JetBrains provides, and instead use the "Initialize Git Repository" option that the template provides to avoid the template-provided `.gitignore` file from being overwritten.**
 
 ### Visual Studio Code
 
 When using Visual Studio Code, you can use the [C# Dev Kit Plugin](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) to create a new project using the template.
-![screenshot of the C# Dev Kit plugin on the Visual Studio Code extension marketplace](./assets/csdevkit.png)
+![screenshot of the C# Dev Kit plugin on the Visual Studio Code extension marketplace](https://raw.githubusercontent.com/kojamori/SFS-Code-Mod-Template/refs/heads/main/assets/csdevkit.png)
 
 Use the keyboard shortcut `Ctrl + Shift + P` (`Cmd + Shift + P` on macOS) in Visual Studio Code to open the 'Show and Run Commands' menu, where you can search and select the `.NET: New Project` command.
-![Screenshot of the Show and Run Commands menu in Visual Studio code with various commands for .NET listed, with "New Project" outlined by a red rectangular outline](./assets/vsc_usage1.png)
-![The SFS Code Mod Template listed in the "Create a New Project" dialog/menu in Visual Studio code outlined by a red rectangular outline](./assets/vsc_usage2.png)
+![Screenshot of the Show and Run Commands menu in Visual Studio code with various commands for .NET listed, with "New Project" outlined by a red rectangular outline](https://raw.githubusercontent.com/kojamori/SFS-Code-Mod-Template/refs/heads/main/assets/vsc_usage1.png)
+![The SFS Code Mod Template listed in the "Create a New Project" dialog/menu in Visual Studio code outlined by a red rectangular outline](https://raw.githubusercontent.com/kojamori/SFS-Code-Mod-Template/refs/heads/main/assets/vsc_usage2.png)
 
 
 

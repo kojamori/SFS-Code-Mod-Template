@@ -2,12 +2,12 @@
   <PropertyGroup>
     <!-- Follow the instructions on https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
     <PackageId>kojamori.SFS.Templates.CodeMod</PackageId>
-    <PackageVersion>1.3.0</PackageVersion>
+    <PackageVersion>1.4.0</PackageVersion>
     <Title>SFS Code Mode Template</Title>
     <Authors>kojamori</Authors>
     <Description>A .NET Framework 4.8 template for creating DLL mods for the video game Spaceflight Simulator (SFS). </Description>
     <PackageTags>dotnet-new;templates;kojamori;sfs;games;modding;mod;gaming</PackageTags>
-    <PackageIcon>icon.png</PackageIcon>
+    <PackageIcon>assets/icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/kojamori/SFS-Code-Mod-Template</PackageProjectUrl>
 
     <PackageType>Template</PackageType>
@@ -40,18 +40,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="icon.png" Pack="true" PackagePath="" />
+    <!-- The reason we have two separate README files is because Nuget
+     does not display embedded media like images from the project itself on the package page, 
+     hence in README_nuget.md we change image links to point to the raw github images
+     as github is a trusted provider. -->
+    <None Include="README_nuget.md" Pack="true" PackagePath="README.md" />
+    <None Update="assets/icon.png" Pack="true" PackagePath="" />
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="LICENSE" Pack="true" PackagePath=""/>
-  </ItemGroup>
 </Project>
