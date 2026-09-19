@@ -30,7 +30,7 @@ TBD
 <!--#endif -->
 <!--#if (discordLink != "" && socials) -->
 ### Discord
-[Join the discord server here!](discordLink)
+discordLink
 
 <!--#endif -->
 <!--#if (creditSmg && socials) -->
