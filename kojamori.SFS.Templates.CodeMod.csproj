@@ -7,7 +7,7 @@
     <Authors>kojamori</Authors>
     <Description>A .NET Framework 4.8 template for creating DLL mods for the video game Spaceflight Simulator (SFS). </Description>
     <PackageTags>dotnet-new;templates;kojamori;sfs;games;modding;mod;gaming</PackageTags>
-    <PackageIcon>./assets/icon.png</PackageIcon>
+    <PackageIcon>assets/icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/kojamori/SFS-Code-Mod-Template</PackageProjectUrl>
 
     <PackageType>Template</PackageType>
@@ -41,13 +41,11 @@
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="" />
+    <None Update="assets/icon.png" Pack="true" PackagePath="" />
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="LICENSE" Pack="true" PackagePath=""/>
-  </ItemGroup>
 </Project>
