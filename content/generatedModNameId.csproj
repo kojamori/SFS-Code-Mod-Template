@@ -1,4 +1,4 @@
-﻿<!-- Made using SFS Code Mod Template v1.4.0 -->
+﻿<!-- Made using SFS Code Mod Template v1.4.1 -->
 
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
@@ -87,11 +87,13 @@
     </Target>
 
     <!-- Implicit Managed References -->
+    <!-- We exclude assemblies that cause warnings or errors, such as mscorlib. -->
     <ItemGroup>
         <Reference
         Include="$(ManagedFolder)/*.dll"
         Exclude="$(ManagedFolder)/System.*.dll;
             $(ManagedFolder)/System.dll;
+            $(ManagedFolder)/mscorlib.dll;
             $(ManagedFolder)/Firebase.*.dll;
             $(ManagedFolder)/Unity.Tasks.dll;
             $(ManagedFolder)/Unity.Compat.dll"
