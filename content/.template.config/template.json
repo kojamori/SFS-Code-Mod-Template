@@ -272,7 +272,7 @@
       "datatype": "bool",
       "defaultValue": "true",
       "description": "Whether to include a social media section in the README.",
-      "displayName": "README Social Media Section"
+      "displayName": "Include README Social Media Section"
     },
 
     "discordLink": {
@@ -287,8 +287,9 @@
     "creditSmg": {
       "type": "parameter",
       "datatype": "bool",
-      "defaultValue": false,
-      "description": "Whether to include a section and link to the SFS Modding Guide (SMG) in the README."
+      "defaultValue": "false",
+      "description": "Whether to include a section and link to the SFS Modding Guide (SMG) in the README.",
+      "displayName": "Credit SFS Modding Guide in README"
     },
 
     "copyrightHolder": {

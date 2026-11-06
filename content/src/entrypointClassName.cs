@@ -26,7 +26,7 @@ public class entrypointClassName : Mod, IUpdatable
     public override string IconLink => null;
     public override Action LoadKeybindings => null;
 
-    public override Dictionary<string, string> Dependencies => new Dictionary<string, string>()
+    public override Dictionary<string, string> Dependencies => new()
     {
         { "UITools", "1.1.6" }
     };
@@ -45,7 +45,7 @@ public class entrypointClassName : Mod, IUpdatable
     public override void Early_Load()
     { 
     #if (harmony)
-        new Harmony(Instance.ModNameID).PatchAll();
+        new Harmony(ModNameID).PatchAll();
     #endif
     }
 
@@ -74,7 +74,7 @@ namespace generatedRootNamespace
         public override string IconLink => null;
         public override Action LoadKeybindings => null;
 
-        public override Dictionary<string, string> Dependencies => new Dictionary<string, string>()
+        public override Dictionary<string, string> Dependencies => new()
         {
             { "UITools", "1.1.6" }
         };
@@ -93,7 +93,7 @@ namespace generatedRootNamespace
         public override void Early_Load()
         { 
         #if (harmony)
-            new Harmony(Instance.ModNameID).PatchAll();
+            new Harmony(ModNameID).PatchAll();
         #endif
         }
 
@@ -130,12 +130,12 @@ public class entrypointClassName : Mod
     public override string IconLink => null;
     public override Action LoadKeybindings => null;
 
-    public override Dictionary<string, string> Dependencies => new Dictionary<string, string>();
+    public override Dictionary<string, string> Dependencies => new();
     
     public override void Early_Load()
     { 
         #if (harmony)
-        new Harmony(Instance.ModNameID).PatchAll();
+        new Harmony(ModNameID).PatchAll();
         #endif
     }
 
@@ -164,12 +164,12 @@ namespace generatedRootNamespace
         public override string IconLink => null;
         public override Action LoadKeybindings => null;
 
-        public override Dictionary<string, string> Dependencies => new Dictionary<string, string>();
+        public override Dictionary<string, string> Dependencies => new();
         
         public override void Early_Load()
         { 
             #if (harmony)
-            new Harmony(Instance.ModNameID).PatchAll();
+            new Harmony(ModNameID).PatchAll();
             #endif
         }
 
