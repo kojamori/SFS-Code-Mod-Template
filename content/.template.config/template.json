@@ -206,7 +206,7 @@
     "entrypointClassName": {
       "type": "parameter",
       "datatype": "string",
-      "defaultValue": "Main",
+      "defaultValue": "Entrypoint",
       "description": "The name of the entrypoint class.",
       "displayName": "Entrypoint Class Name",
       "replaces": "entrypointClassName",
