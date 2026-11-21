@@ -2,9 +2,9 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "kojamori",
   "classifications": ["Linux", "macOS", "Windows", "Games", "Mod", "SFS"],
-  "identity": "kojamori.SFS.Templates.CodeMod",
-  "name": "SFS Code Mod Template",
-  "shortName": "sfsmod",
+  "identity": "kojamori.SFS.Templates.SMGCodeMod",
+  "name": "SFS Code Mod Template (SMG)",
+  "shortName": "smgmod",
   "sourceName": "generatedModNameId",
   "tags": {
     "language": "C#",
@@ -51,7 +51,7 @@
     "author": {
       "type": "parameter",
       "datatype": "string",
-      "defaultValue": "",
+      "defaultValue": "kojamori",
       "replaces": "author",
       "description": "The author of the mod. This is used in the mod's metadata and is displayed in the game.",
       "displayName": "Author"
@@ -69,7 +69,7 @@
     "modDescription": {
       "type": "parameter",
       "datatype": "string",
-      "defaultValue": "",
+      "defaultValue": "A mod.",
       "replaces": "modDescription",
       "description": "A brief description of the mod. This is displayed in the in-game mod list.",
       "displayName": "Mod Description"
@@ -87,7 +87,7 @@
     "autoCopyMod": {
       "type": "parameter",
       "datatype": "bool",
-      "defaultValue": "false",
+      "defaultValue": "true",
       "description": "Whether to automatically copy the built mod DLL into the SFS mods folder.",
       "displayName": "Automatic DLL Copying"
     },
@@ -104,7 +104,7 @@
     "autoCopyPdb": {
       "type": "parameter",
       "datatype": "bool",
-      "defaultValue": "false",
+      "defaultValue": "true",
       "description": "Whether to automatically copy the built mod DLL's .pdb (Program Database) into the mod folder for debugging.",
       "displayName": "Automatic PDB Copying"
     },
@@ -198,7 +198,7 @@
     "fileScopedNamespace": {
       "type": "parameter",
       "datatype": "bool",
-      "defaultValue": "false",
+      "defaultValue": "true",
       "description": "Whether to make the entrypoint class file use a file-scoped namespace.",
       "displayName": "File-scoped Namespace"
     },
@@ -206,7 +206,7 @@
     "entrypointClassName": {
       "type": "parameter",
       "datatype": "string",
-      "defaultValue": "Main",
+      "defaultValue": "Entrypoint",
       "description": "The name of the entrypoint class.",
       "displayName": "Entrypoint Class Name",
       "replaces": "entrypointClassName",
@@ -252,7 +252,7 @@
     "readMeDescription": {
       "type": "parameter",
       "datatype": "string",
-      "defaultValue": "",
+      "defaultValue": "A code mod for the video game Spaceflight Simulator (SFS).",
       "description": "The description in the mod's README. Defaults to the mod description.",
       "displayName": "README Description"
     },
@@ -278,7 +278,7 @@
     "discordLink": {
       "type": "parameter",
       "datatype": "string",
-      "defaultValue": "",
+      "defaultValue": "https://discord.gg/QHEmcehAe9",
       "description": "The Discord invite link for the mod's server. This is displayed in the socials section of the README.",
       "displayName": "Discord Invite Link",
       "replaces": "discordLink"
@@ -287,7 +287,7 @@
     "creditSmg": {
       "type": "parameter",
       "datatype": "bool",
-      "defaultValue": "false",
+      "defaultValue": "true",
       "description": "Whether to include a section and link to the SFS Modding Guide (SMG) in the README.",
       "displayName": "Credit SFS Modding Guide in README"
     },

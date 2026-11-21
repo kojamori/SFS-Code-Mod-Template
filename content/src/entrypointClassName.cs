@@ -23,7 +23,7 @@ public class entrypointClassName : Mod, IUpdatable
     public override string MinimumGameVersionNecessary => "minimumGameVersion";
     public override string ModVersion => "modVersion";
     public override string Description => "modDescription";
-    public override string IconLink => null;
+    public override string IconLink => "https://raw.githubusercontent.com/kojamori/generatedModNameId/refs/heads/main/assets/logo.png";
     public override Action LoadKeybindings => null;
 
     public override Dictionary<string, string> Dependencies => new()
@@ -71,7 +71,7 @@ namespace generatedRootNamespace
         public override string MinimumGameVersionNecessary => "minimumGameVersion";
         public override string ModVersion => "modVersion";
         public override string Description => "modDescription";
-        public override string IconLink => null;
+        public override string IconLink => "https://raw.githubusercontent.com/kojamori/generatedModNameId/refs/heads/main/assets/logo.png";
         public override Action LoadKeybindings => null;
 
         public override Dictionary<string, string> Dependencies => new()
@@ -127,7 +127,7 @@ public class entrypointClassName : Mod
     public override string MinimumGameVersionNecessary => "minimumGameVersion";
     public override string ModVersion => "modVersion";
     public override string Description => "modDescription";
-    public override string IconLink => null;
+    public override string IconLink => "https://raw.githubusercontent.com/kojamori/generatedModNameId/refs/heads/main/assets/logo.png";
     public override Action LoadKeybindings => null;
 
     public override Dictionary<string, string> Dependencies => new();
@@ -161,7 +161,7 @@ namespace generatedRootNamespace
         public override string MinimumGameVersionNecessary => "minimumGameVersion";
         public override string ModVersion => "modVersion";
         public override string Description => "modDescription";
-        public override string IconLink => null;
+        public override string IconLink => "https://raw.githubusercontent.com/kojamori/generatedModNameId/refs/heads/main/assets/logo.png";
         public override Action LoadKeybindings => null;
 
         public override Dictionary<string, string> Dependencies => new();

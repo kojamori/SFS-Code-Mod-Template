@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Follow the instructions on https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
+    <PackageId>kojamori.SFS.Templates.SMGCodeMod</PackageId>
+    <PackageVersion>1.4.2</PackageVersion>
+    <Title>SFS Code Mode Template</Title>
+    <Authors>kojamori</Authors>
+    <Description>A .NET Framework 4.8 template for creating DLL mods for the video game Spaceflight Simulator (SFS). </Description>
+    <PackageTags>dotnet-new;templates;kojamori;sfs;games;modding;mod;gaming</PackageTags>
+    <PackageIcon>assets/logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/kojamori/SFS-Code-Mod-Template</PackageProjectUrl>
+
+    <PackageType>Template</PackageType>
+    <TargetFramework>net48</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LocalizeTemplates>false</LocalizeTemplates>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TemplateEngine.Tasks" Version="*" PrivateAssets="all" IsImplicitlyDefined="true"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <RepositoryUrl>https://github.com/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="content/**/*" Exclude="content/**/bin/**;content/**/obj/**" />
+    <Compile Remove="**/*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The reason we have two separate README files is because Nuget
+     does not display embedded media like images from the project itself on the package page, 
+     hence in README_nuget.md we change image links to point to the raw github images
+     as github is a trusted provider. -->
+    <None Include="README_nuget.md" Pack="true" PackagePath="README.md" />
+    <None Update="assets/logo.png" Pack="true" PackagePath="" />
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+</Project>
