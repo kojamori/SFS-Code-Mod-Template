@@ -1,6 +1,8 @@
-# SFS Code Mod Template
+# SFS Code Mod Template (SMG Branch)
 
 A .NET Framework 4.8 C# project template for creating code (DLL) mods for the video game Spaceflight Simulator (SFS).
+
+The purpose of this branch is personalising some default values and files to speed up development for mods made by kojamori.
 
 Some features include:
 
