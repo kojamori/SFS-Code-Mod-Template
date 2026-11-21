@@ -5,21 +5,13 @@ generatedReadMeDescription
 ## Requirements and Dependencies
 - SFS vminimumGameVersion on PC 
 
+## Features and Usage
+
+TBD
+
 ## Installation
 
 [Code Mod Installation Guide | SFS Modding Guide](https://kojamori.github.io/SFS-Modding-Guide/getting-started/installation/code-mods)
-
-## Documentation
-
-TBD
-
-## Changelog
-
-TBD
-
-## Contributing
-
-TBD
 
 <!--#if (socials) -->
 ## Social Media
@@ -38,6 +30,15 @@ discordLink
 https://github.com/kojamori/SFS-Modding-Guide
 
 <!--#endif -->
+
+## Authorship and Credits
+
+TBD
+
+# Contributing
+
+TBD
+
 # License
 
 See the [LICENSE](LICENSE) file for details.
