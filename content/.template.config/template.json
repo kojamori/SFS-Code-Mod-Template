@@ -220,17 +220,7 @@
       "description": "The assembly name for the generated project. If left empty, the Mod Name ID will be used as the assembly name.",
       "displayName": "Assembly Name"
     },
-    "generatedAssemblyName": {
-      "type": "generated",
-      "generator": "coalesce",
-      "parameters": {
-        "source": "assemblyName,generatedModNameId",
-        "sourceVariableName": "assemblyName",
-        "fallbackVariableName": "generatedModNameId"
-      },
-      "replaces": "generatedAssemblyName"
-    },
-
+    
     "rootNamespace": {
       "type": "parameter",
       "datatype": "string",
