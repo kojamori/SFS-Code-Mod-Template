@@ -4,8 +4,10 @@
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
-        
+
+        <!--#if (assemblyName != "")-->
         <AssemblyName>generatedAssemblyName</AssemblyName>
+        <!--#endif-->
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <OutputPath>bin/$(Configuration)</OutputPath>
 
